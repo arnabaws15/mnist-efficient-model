@@ -1,0 +1,132 @@
+Using device: cpu
+Model parameter count: 19,578
+Parameter constraint (<20,000): ✓ PASS
+
+==================================================
+Starting Training for 19 Epochs
+==================================================
+Epoch: 1/19 | Train Batch: 0/469 Loss: 2.315413 Accuracy: 10.94%
+Epoch: 1/19 | Train Batch: 100/469 Loss: 1.202022 Accuracy: 49.43%
+Epoch: 1/19 | Train Batch: 200/469 Loss: 0.800317 Accuracy: 67.64%
+Epoch: 1/19 | Train Batch: 300/469 Loss: 0.790636 Accuracy: 76.14%
+Epoch: 1/19 | Train Batch: 400/469 Loss: 0.735146 Accuracy: 80.83%
+Epoch 1/19 completed - Accuracy: 82.88%, Loss: 1.0251
+Epoch: 2/19 | Train Batch: 0/469 Loss: 0.735279 Accuracy: 93.75%
+Epoch: 2/19 | Train Batch: 100/469 Loss: 0.711690 Accuracy: 96.06%
+Epoch: 2/19 | Train Batch: 200/469 Loss: 0.708147 Accuracy: 96.33%
+Epoch: 2/19 | Train Batch: 300/469 Loss: 0.716559 Accuracy: 96.41%
+Epoch: 2/19 | Train Batch: 400/469 Loss: 0.634895 Accuracy: 96.47%
+Epoch 2/19 completed - Accuracy: 96.62%, Loss: 0.6754
+Epoch: 3/19 | Train Batch: 0/469 Loss: 0.645630 Accuracy: 97.66%
+Epoch: 3/19 | Train Batch: 100/469 Loss: 0.650373 Accuracy: 97.20%
+Epoch: 3/19 | Train Batch: 200/469 Loss: 0.639961 Accuracy: 97.22%
+Epoch: 3/19 | Train Batch: 300/469 Loss: 0.662358 Accuracy: 97.30%
+Epoch: 3/19 | Train Batch: 400/469 Loss: 0.625737 Accuracy: 97.41%
+Epoch 3/19 completed - Accuracy: 97.42%, Loss: 0.6406
+Epoch: 4/19 | Train Batch: 0/469 Loss: 0.635147 Accuracy: 97.66%
+Epoch: 4/19 | Train Batch: 100/469 Loss: 0.627417 Accuracy: 97.80%
+Epoch: 4/19 | Train Batch: 200/469 Loss: 0.594335 Accuracy: 97.81%
+Epoch: 4/19 | Train Batch: 300/469 Loss: 0.608760 Accuracy: 97.79%
+Epoch: 4/19 | Train Batch: 400/469 Loss: 0.592653 Accuracy: 97.87%
+Epoch 4/19 completed - Accuracy: 97.87%, Loss: 0.6245
+Epoch: 5/19 | Train Batch: 0/469 Loss: 0.603979 Accuracy: 99.22%
+Epoch: 5/19 | Train Batch: 100/469 Loss: 0.620220 Accuracy: 98.22%
+Epoch: 5/19 | Train Batch: 200/469 Loss: 0.623985 Accuracy: 98.17%
+Epoch: 5/19 | Train Batch: 300/469 Loss: 0.568683 Accuracy: 98.14%
+Epoch: 5/19 | Train Batch: 400/469 Loss: 0.619547 Accuracy: 98.09%
+Epoch 5/19 completed - Accuracy: 98.10%, Loss: 0.6132
+Epoch: 6/19 | Train Batch: 0/469 Loss: 0.603494 Accuracy: 97.66%
+Epoch: 6/19 | Train Batch: 100/469 Loss: 0.630230 Accuracy: 98.45%
+Epoch: 6/19 | Train Batch: 200/469 Loss: 0.584594 Accuracy: 98.40%
+Epoch: 6/19 | Train Batch: 300/469 Loss: 0.622665 Accuracy: 98.39%
+Epoch: 6/19 | Train Batch: 400/469 Loss: 0.612178 Accuracy: 98.38%
+Epoch 6/19 completed - Accuracy: 98.38%, Loss: 0.6049
+Epoch: 7/19 | Train Batch: 0/469 Loss: 0.570661 Accuracy: 100.00%
+Epoch: 7/19 | Train Batch: 100/469 Loss: 0.596573 Accuracy: 98.55%
+Epoch: 7/19 | Train Batch: 200/469 Loss: 0.567623 Accuracy: 98.55%
+Epoch: 7/19 | Train Batch: 300/469 Loss: 0.598268 Accuracy: 98.46%
+Epoch: 7/19 | Train Batch: 400/469 Loss: 0.607211 Accuracy: 98.46%
+Epoch 7/19 completed - Accuracy: 98.46%, Loss: 0.5996
+Epoch: 8/19 | Train Batch: 0/469 Loss: 0.615810 Accuracy: 97.66%
+Epoch: 8/19 | Train Batch: 100/469 Loss: 0.582580 Accuracy: 98.67%
+Epoch: 8/19 | Train Batch: 200/469 Loss: 0.605015 Accuracy: 98.82%
+Epoch: 8/19 | Train Batch: 300/469 Loss: 0.567585 Accuracy: 98.83%
+Epoch: 8/19 | Train Batch: 400/469 Loss: 0.587338 Accuracy: 98.81%
+Epoch 8/19 completed - Accuracy: 98.83%, Loss: 0.5883
+Epoch: 9/19 | Train Batch: 0/469 Loss: 0.581298 Accuracy: 99.22%
+Epoch: 9/19 | Train Batch: 100/469 Loss: 0.573788 Accuracy: 98.79%
+Epoch: 9/19 | Train Batch: 200/469 Loss: 0.589622 Accuracy: 98.74%
+Epoch: 9/19 | Train Batch: 300/469 Loss: 0.581540 Accuracy: 98.84%
+Epoch: 9/19 | Train Batch: 400/469 Loss: 0.582427 Accuracy: 98.84%
+Epoch 9/19 completed - Accuracy: 98.83%, Loss: 0.5872
+Epoch: 10/19 | Train Batch: 0/469 Loss: 0.605793 Accuracy: 99.22%
+Epoch: 10/19 | Train Batch: 100/469 Loss: 0.591422 Accuracy: 98.95%
+Epoch: 10/19 | Train Batch: 200/469 Loss: 0.593957 Accuracy: 98.87%
+Epoch: 10/19 | Train Batch: 300/469 Loss: 0.591455 Accuracy: 98.87%
+Epoch: 10/19 | Train Batch: 400/469 Loss: 0.580873 Accuracy: 98.87%
+Epoch 10/19 completed - Accuracy: 98.88%, Loss: 0.5853
+Epoch: 11/19 | Train Batch: 0/469 Loss: 0.572760 Accuracy: 100.00%
+Epoch: 11/19 | Train Batch: 100/469 Loss: 0.589581 Accuracy: 98.94%
+Epoch: 11/19 | Train Batch: 200/469 Loss: 0.618588 Accuracy: 98.89%
+Epoch: 11/19 | Train Batch: 300/469 Loss: 0.574451 Accuracy: 98.92%
+Epoch: 11/19 | Train Batch: 400/469 Loss: 0.576502 Accuracy: 98.94%
+Epoch 11/19 completed - Accuracy: 98.95%, Loss: 0.5847
+Epoch: 12/19 | Train Batch: 0/469 Loss: 0.573627 Accuracy: 98.44%
+Epoch: 12/19 | Train Batch: 100/469 Loss: 0.585567 Accuracy: 98.97%
+Epoch: 12/19 | Train Batch: 200/469 Loss: 0.605005 Accuracy: 98.99%
+Epoch: 12/19 | Train Batch: 300/469 Loss: 0.587744 Accuracy: 98.97%
+Epoch: 12/19 | Train Batch: 400/469 Loss: 0.594207 Accuracy: 98.97%
+Epoch 12/19 completed - Accuracy: 98.94%, Loss: 0.5838
+Epoch: 13/19 | Train Batch: 0/469 Loss: 0.563848 Accuracy: 99.22%
+Epoch: 13/19 | Train Batch: 100/469 Loss: 0.561872 Accuracy: 98.90%
+Epoch: 13/19 | Train Batch: 200/469 Loss: 0.587539 Accuracy: 98.92%
+Epoch: 13/19 | Train Batch: 300/469 Loss: 0.562806 Accuracy: 98.92%
+Epoch: 13/19 | Train Batch: 400/469 Loss: 0.569994 Accuracy: 98.92%
+Epoch 13/19 completed - Accuracy: 98.93%, Loss: 0.5831
+Epoch: 14/19 | Train Batch: 0/469 Loss: 0.578000 Accuracy: 100.00%
+Epoch: 14/19 | Train Batch: 100/469 Loss: 0.583378 Accuracy: 99.03%
+Epoch: 14/19 | Train Batch: 200/469 Loss: 0.585678 Accuracy: 99.01%
+Epoch: 14/19 | Train Batch: 300/469 Loss: 0.571045 Accuracy: 99.01%
+Epoch: 14/19 | Train Batch: 400/469 Loss: 0.594593 Accuracy: 98.99%
+Epoch 14/19 completed - Accuracy: 98.99%, Loss: 0.5825
+Epoch: 15/19 | Train Batch: 0/469 Loss: 0.596651 Accuracy: 97.66%
+Epoch: 15/19 | Train Batch: 100/469 Loss: 0.577069 Accuracy: 98.91%
+Epoch: 15/19 | Train Batch: 200/469 Loss: 0.567084 Accuracy: 98.91%
+Epoch: 15/19 | Train Batch: 300/469 Loss: 0.583057 Accuracy: 98.94%
+Epoch: 15/19 | Train Batch: 400/469 Loss: 0.572990 Accuracy: 98.98%
+Epoch 15/19 completed - Accuracy: 98.97%, Loss: 0.5810
+Epoch: 16/19 | Train Batch: 0/469 Loss: 0.602035 Accuracy: 99.22%
+Epoch: 16/19 | Train Batch: 100/469 Loss: 0.615132 Accuracy: 98.88%
+Epoch: 16/19 | Train Batch: 200/469 Loss: 0.602676 Accuracy: 98.95%
+Epoch: 16/19 | Train Batch: 300/469 Loss: 0.556309 Accuracy: 98.93%
+Epoch: 16/19 | Train Batch: 400/469 Loss: 0.577689 Accuracy: 98.98%
+Epoch 16/19 completed - Accuracy: 99.01%, Loss: 0.5802
+Epoch: 17/19 | Train Batch: 0/469 Loss: 0.596117 Accuracy: 98.44%
+Epoch: 17/19 | Train Batch: 100/469 Loss: 0.578458 Accuracy: 99.09%
+Epoch: 17/19 | Train Batch: 200/469 Loss: 0.563491 Accuracy: 99.08%
+Epoch: 17/19 | Train Batch: 300/469 Loss: 0.558131 Accuracy: 99.03%
+Epoch: 17/19 | Train Batch: 400/469 Loss: 0.580235 Accuracy: 99.04%
+Epoch 17/19 completed - Accuracy: 99.03%, Loss: 0.5804
+Epoch: 18/19 | Train Batch: 0/469 Loss: 0.573379 Accuracy: 99.22%
+Epoch: 18/19 | Train Batch: 100/469 Loss: 0.596814 Accuracy: 98.99%
+Epoch: 18/19 | Train Batch: 200/469 Loss: 0.568486 Accuracy: 98.97%
+Epoch: 18/19 | Train Batch: 300/469 Loss: 0.586482 Accuracy: 99.00%
+Epoch: 18/19 | Train Batch: 400/469 Loss: 0.603331 Accuracy: 98.98%
+Epoch 18/19 completed - Accuracy: 99.01%, Loss: 0.5809
+Epoch: 19/19 | Train Batch: 0/469 Loss: 0.586334 Accuracy: 99.22%
+Epoch: 19/19 | Train Batch: 100/469 Loss: 0.576728 Accuracy: 99.02%
+Epoch: 19/19 | Train Batch: 200/469 Loss: 0.597149 Accuracy: 99.02%
+Epoch: 19/19 | Train Batch: 300/469 Loss: 0.554800 Accuracy: 99.00%
+Epoch: 19/19 | Train Batch: 400/469 Loss: 0.585605 Accuracy: 99.00%
+Epoch 19/19 completed - Accuracy: 98.99%, Loss: 0.5810
+
+==================================================
+RESULTS
+==================================================
+Parameters: 19,578 (<20,000: ✓)
+Training Time: 744.06 seconds
+Train Accuracy: 98.99%
+Test Accuracy: 99.20%
+Accuracy Goal (≥99.4%): ✗ NOT ACHIEVED
+Train Loss: 0.5810
+Test Loss: 0.1155
