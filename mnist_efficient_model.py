@@ -12,7 +12,7 @@ class EfficientMNISTModel(nn.Module):
         
         # Block 1: (Conv -> BN -> ReLU) x 2 -> MaxPool
         self.conv_block1 = nn.Sequential(
-            nn.Conv2d(in_channels=1, out_channels=16, kernel_size=3, padding=1),
+            nn.Conv2d(in_channels=1, out_channels=16, kernel_size=5, padding=2),
             nn.BatchNorm2d(16),
             nn.ReLU(),
             nn.Conv2d(in_channels=16, out_channels=16, kernel_size=3, padding=1),
