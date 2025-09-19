@@ -40,9 +40,9 @@ The model architecture is designed to stay under **20,000 parameters**:
 
 | Layer Type | Details | Parameters |
 |------------|---------|------------|
-| **Conv Block 1** | Conv(1→16, 5x5) + BN + Conv(16→16, 3x3) + BN | ~6,848 |
-| **Conv Block 2** | Conv(16→32, 3x3) + BN + Conv(32→32, 3x3) + BN | ~13,952 |
-| **Classifier** | Linear(32→64) + Linear(64→10) | ~2,730 |
+| **Conv Block 1** | Conv(1→16, 5x5) + BN + Conv(16→16, 3x3) + BN | 2,800 |
+| **Conv Block 2** | Conv(16→32, 3x3) + BN + Conv(32→32, 3x3) + BN | 14,016 |
+| **Classifier** | Linear(32→64) + Linear(64→10) | 2,762 |
 | **Total** | All trainable parameters | **~19,000** ✅ |
 
 **Parameter Efficiency Techniques:**

@@ -67,8 +67,6 @@ def get_data_loaders(batch_size=128):
     # Training transforms with enhanced augmentation for better accuracy
     train_transform = transforms.Compose([
         transforms.RandomRotation(7),
-        # transforms.RandomAffine(degrees=10, translate=(0.1, 0.1), scale=(0.9, 1.1)),
-        # transforms.RandomPerspective(distortion_scale=0.1, p=0.5),
         transforms.ToTensor(),
         transforms.Normalize((0.1307,), (0.3081,))
     ])
