@@ -10,46 +10,52 @@ class EfficientMNISTModel(nn.Module):
     def __init__(self):
         super(EfficientMNISTModel, self).__init__()
         
-        self.conv1 = nn.Sequential(
-            nn.Conv2d(1, 16, 3, padding=1),
+        # Block 1: (Conv -> BN -> ReLU) x 2 -> MaxPool
+        self.conv_block1 = nn.Sequential(
+            nn.Conv2d(in_channels=1, out_channels=16, kernel_size=3, padding=1),
             nn.BatchNorm2d(16),
             nn.ReLU(),
-            nn.MaxPool2d(2, 2),
-            nn.Dropout(0.25)
+            nn.Conv2d(in_channels=16, out_channels=16, kernel_size=3, padding=1),
+            nn.BatchNorm2d(16),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=2, stride=2) # Output: 14x14x16
         )    
 
-        self.conv2 = nn.Sequential(
-            nn.Conv2d(16, 32, 3, padding=1),
+        # Block 2: (Conv -> BN -> ReLU) x 2 -> MaxPool
+        self.conv_block2 = nn.Sequential(
+            nn.Conv2d(in_channels=16, out_channels=32, kernel_size=3, padding=1),
             nn.BatchNorm2d(32),
             nn.ReLU(),
-            nn.MaxPool2d(2, 2),
-            nn.Dropout(0.25)
-        )
-        
-        self.conv3 = nn.Sequential(
-            nn.Conv2d(32, 64, 3, padding=1),
-            nn.BatchNorm2d(64),
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3, padding=1),
+            nn.BatchNorm2d(32),
             nn.ReLU(),
-            nn.MaxPool2d(2, 2),
-            nn.Dropout(0.25)
+            nn.MaxPool2d(kernel_size=2, stride=2) # Output: 7x7x32
         )
         
-        # Global Average Pooling to drastically reduce parameters
-        self.global_pool = nn.AdaptiveAvgPool2d(1)
+        # Global Average Pooling to prepare for the classifier
+        self.global_pool = nn.AdaptiveAvgPool2d(1) # Output: 1x1x32
         
+        # Classifier Head
         self.fc = nn.Sequential(
-            nn.Linear(64, 10),
+            nn.Linear(32, 64),
+            nn.ReLU(),
+            nn.Dropout(0.25), # Regularization for the classifier
+            nn.Linear(64, 10), # Map features to the 10 classes
         )
     
     def forward(self, x):
-        x = self.conv1(x)
-        x = self.conv2(x)
-        x = self.conv3(x)
-        # Global average pooling
+        x = self.conv_block1(x)
+        x = self.conv_block2(x)
+        
+        # Global average pooling and flatten
         x = self.global_pool(x)
-        x = x.view(x.size(0), -1)
+        x = x.view(x.size(0), -1) # Flatten the output for the linear layer
+        
+        # Classifier
         x = self.fc(x)
-        return F.log_softmax(x, dim=1)
+        
+        # Return raw logits
+        return x
 
 def count_parameters(model):
     """Count the total number of trainable parameters"""
@@ -58,10 +64,11 @@ def count_parameters(model):
 def get_data_loaders(batch_size=128):
     """Get MNIST data loaders with augmentation"""
     
-    # Training transforms with augmentation for better 1-epoch performance
+    # Training transforms with enhanced augmentation for better accuracy
     train_transform = transforms.Compose([
-        transforms.RandomRotation(10),
-        transforms.RandomAffine(degrees=0, translate=(0.1, 0.1)),
+        transforms.RandomRotation(7),
+        # transforms.RandomAffine(degrees=10, translate=(0.1, 0.1), scale=(0.9, 1.1)),
+        # transforms.RandomPerspective(distortion_scale=0.1, p=0.5),
         transforms.ToTensor(),
         transforms.Normalize((0.1307,), (0.3081,))
     ])
@@ -84,7 +91,7 @@ def get_data_loaders(batch_size=128):
     
     return train_loader, test_loader
 
-def train(model, device, train_loader, optimizer, criterion, epochs):
+def train(model, device, train_loader, optimizer, scheduler, criterion, epochs):
     """Train the model for the specified number of epochs"""
     model.train()
     final_train_accuracy = 0
@@ -118,6 +125,9 @@ def train(model, device, train_loader, optimizer, criterion, epochs):
         epoch_loss = running_loss / len(train_loader)
         
         print(f'Epoch {epoch}/{epochs} completed - Accuracy: {epoch_accuracy:.2f}%, Loss: {epoch_loss:.4f}')
+        
+        # Step the learning rate scheduler
+        scheduler.step()
         
         # Store final epoch results
         final_train_accuracy = epoch_accuracy
@@ -154,27 +164,28 @@ def main():
     param_count = count_parameters(model)
     
     print(f"Model parameter count: {param_count:,}")
-    print(f"Parameter constraint (<25,000): {'✓ PASS' if param_count < 25000 else '✗ FAIL'}")
+    print(f"Parameter constraint (<20,000): {'✓ PASS' if param_count < 20000 else '✗ FAIL'}")
     
-    if param_count >= 30000:
-        print(f"ERROR: Model has {param_count} parameters, exceeds 30,000 limit!")
+    if param_count >= 20000:
+        print(f"ERROR: Model has {param_count} parameters, exceeds 20,000 limit!")
         return
     
     # Get data loaders
     train_loader, test_loader = get_data_loaders(batch_size=128)
     
     # Set up optimizer and criterion
-    optimizer = optim.Adam(model.parameters(), lr=0.001, weight_decay=1e-4)
-    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.AdamW(model.parameters(), lr=0.001, weight_decay=0.01)
+    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=7, gamma=0.1)
+    criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
     
     print("\n" + "="*50)
-    print("Starting Training for 1 Epoch")
+    print("Starting Training for 19 Epochs")
     print("="*50)
     
     start_time = time.time()
     
     # Train for exactly 1 epoch
-    train_accuracy, train_loss = train(model, device, train_loader, optimizer, criterion, epochs=20)
+    train_accuracy, train_loss = train(model, device, train_loader, optimizer, scheduler, criterion, epochs=19)
     
     # Test the model
     test_accuracy, test_loss = test(model, device, test_loader)
@@ -185,16 +196,16 @@ def main():
     print(f"\n" + "="*50)
     print("RESULTS")
     print("="*50)
-    print(f"Parameters: {param_count:,} (<30,000: {'✓' if param_count < 30000 else '✗'})")
+    print(f"Parameters: {param_count:,} (<20,000: {'✓' if param_count < 20000 else '✗'})")
     print(f"Training Time: {training_time:.2f} seconds")
     print(f"Train Accuracy: {train_accuracy:.2f}%")
     print(f"Test Accuracy: {test_accuracy:.2f}%")
-    print(f"Accuracy Goal (≥95%): {'✓ ACHIEVED' if test_accuracy >= 95.0 else '✗ NOT ACHIEVED'}")
+    print(f"Accuracy Goal (≥99.4%): {'✓ ACHIEVED' if test_accuracy >= 99.4 else '✗ NOT ACHIEVED'}")
     print(f"Train Loss: {train_loss:.4f}")
     print(f"Test Loss: {test_loss:.4f}")
     
     # Save the model if it meets requirements
-    if param_count < 25000 and test_accuracy >= 95.0:
+    if param_count < 20000 and test_accuracy >= 99.4:
         torch.save(model.state_dict(), 'efficient_mnist_model.pth')
         print(f"\n✓ Model saved as 'efficient_mnist_model.pth' - All requirements met!")
     
