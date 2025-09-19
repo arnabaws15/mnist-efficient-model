@@ -1,6 +1,6 @@
 # Efficient MNIST Neural Network
 
-A lightweight convolutional neural network that achieves **99.4%+ accuracy on MNIST** while using **fewer than 20,000 parameters**.
+A lightweight convolutional neural network that achieves **99.2%+ accuracy on MNIST** while using **fewer than 20,000 parameters**.
 
 ## 🎯 Project Goals
 
@@ -10,7 +10,7 @@ A lightweight convolutional neural network that achieves **99.4%+ accuracy on MN
 
 ## 📊 Results
 
-| Metric | Requirement | Target |
+| Metric | Requirement | Actuals |
 |--------|-------------|--------|
 | Parameters | < 20,000 | **19,578** ✅ |
 | Test Accuracy | ≥ 99.4% | **99.2%+** 🎯 |
