@@ -13,7 +13,7 @@ A lightweight convolutional neural network that achieves **99.2%+ accuracy on MN
 | Metric | Requirement | Actuals |
 |--------|-------------|--------|
 | Parameters | < 20,000 | **19,578** ✅ |
-| Test Accuracy | ≥ 99.4% | **99.2%+** 🎯 |
+| Test Accuracy | ≥ 99.4% | **99.2%+**  |
 | Training Epochs | 19 epochs | **Optimized** ✅ |
 
 ## 🏗️ Model Architecture
